@@ -1,0 +1,13 @@
+<?php
+
+/* [getTheContent({link[1]})] */
+
+function getTheContent($link) {
+$page = file_get_contents($link);
+$doc = new DOMDocument;
+$doc->loadHTML($page);
+//return $doc->saveHTML($doc->getElementsByTagName('div')->item(35));
+
+return $doc->saveHTML($doc->getElementById("mboxcontent"));
+
+}
